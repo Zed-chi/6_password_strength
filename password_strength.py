@@ -3,7 +3,7 @@ from zxcvbn import zxcvbn
 
 def get_password_strength(password):
     rank = zxcvbn(password)
-    return rank["score"]/0.4
+    return (rank["score"]//0.4)+1
 
 
 def main():
