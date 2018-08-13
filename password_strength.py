@@ -2,14 +2,14 @@ from zxcvbn import zxcvbn
 
 
 def get_password_strength(password):
-    rank = zxcvbn(password)
-    return (rank["score"]//0.4)+1
+    strength_info = zxcvbn(password)
+    return (strength_info["score"]//0.4)+1
 
 
 def main():
         password = input("Please type your  password: ")
-        rank = get_password_strength(password)
-        print("Your password got {} point of security".format(rank))
+        score = get_password_strength(password)
+        print("Your password got {} point(s) of security".format(score))
 
 
 if __name__ == '__main__':
