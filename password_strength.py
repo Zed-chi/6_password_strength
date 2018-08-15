@@ -63,11 +63,8 @@ def get_numbers_only_penalty(password):
 
 
 def get_repeats_penalty(password):
-    penalty = 0
-    chars = ("""ABCDEFGHIJKLMNOPQRSTUVWXYZ
-           abcdefghijklmnopqrstuvwxyz0123456789""")
-    for char in chars:
-        penalty += len(re.findall(char, password))
+    unique_chars = set(password)
+    penalty = len(password) - len(unique_chars)
     return penalty * -1
 
 
