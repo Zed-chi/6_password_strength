@@ -115,7 +115,7 @@ def get_password_strength(password):
 
 def main():
     password = getpass.getpass("Please type pass to check: ")
-    if not len(password):
+    if not password:
         exit("password is empty")
     print("You got", get_password_strength(password), "point(s) of security")
 
