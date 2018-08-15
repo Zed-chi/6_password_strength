@@ -8,17 +8,17 @@ def get_points_of_length(password):
 
 
 def get_points_of_uppercase_letters(password):
-    letters = len(re.findall(r"[A-Z]", password))
-    if letters > 0:
-        return (len(password)-letters) * 2
+    letters_count = len(re.findall(r"[A-Z]", password))
+    if letters_count > 0:
+        return (len(password)-letters_count) * 2
     else:
         return 0
 
 
 def get_points_of_lowercase_letters(password):
-    letters = len(re.findall(r"[a-z]", password))
-    if letters > 0:
-        return (len(password)-letters) * 2
+    letters_count = len(re.findall(r"[a-z]", password))
+    if letters_count > 0:
+        return (len(password)-letters_count) * 2
     else:
         return 0
 
@@ -70,7 +70,7 @@ def get_repeats_penalty(password):
 
 def get_sequental_chars_penalty(password):
     penalty = 1
-    for char,next_char in zip(password,password[1:]):
+    for char, next_char in zip(password, password[1:]):
             if ord(char) == ord(next_char)-1:
                 penalty += 1
     return penalty * -3
@@ -78,7 +78,7 @@ def get_sequental_chars_penalty(password):
 
 def get_consecutive_chars_penalty(password):
     penalty = 0
-    for char,next_char in zip(password,password[1:]):
+    for char, next_char in zip(password, password[1:]):
             if ord(char) == ord(next_char):
                 penalty += 2
     return penalty * -3 if penalty >= 3 else 0
