@@ -70,18 +70,16 @@ def get_repeats_penalty(password):
 
 def get_sequental_chars_penalty(password):
     penalty = 1
-    for index in range(len(password)):
-        if index < len(password)-1:
-            if ord(password[index]) == ord(password[index+1])-1:
+    for char,next_char in zip(password,password[1:]):
+            if ord(char) == ord(next_char)-1:
                 penalty += 1
     return penalty * -3
 
 
 def get_consecutive_chars_penalty(password):
     penalty = 0
-    for index in range(len(password)):
-        if index < len(password)-1:
-            if ord(password[index]) == ord(password[index+1]):
+    for char,next_char in zip(password,password[1:]):
+            if ord(char) == ord(next_char):
                 penalty += 2
     return penalty * -3 if penalty >= 3 else 0
 
