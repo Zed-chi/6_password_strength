@@ -57,8 +57,7 @@ def get_letters_only_penalty(password):
 
 
 def get_numbers_only_penalty(password):
-    # fuck
-    if not len(re.findall(r"\w", password)):
+    if not re.search(r"[a-zа-я]", password):
         return len(password) * -3
     return 0
 
